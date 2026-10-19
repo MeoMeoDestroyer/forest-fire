@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Fire {
     /**
      * Returns how long it takes for all vulnerable trees to be set on fire if a
@@ -42,4 +45,24 @@ public class Fire {
         // Implement this AND add more tests!!!
         return -1;
     }
+
+    public static List<int[]> nextMoves(char[][] forest, int[] current) {
+        int curR = current[0];
+        int curC = current[1];
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        List<int[]> moves = new ArrayList<>();
+
+        for (int[] direction : directions) {
+            int newR = curR + direction[0];
+            int newC = curC + direction[1];
+
+            if (newR >= 0 && newR < forest.length
+                    && newC >= 0 && newC < forest[newR].length
+                    && forest[newR][newC] == 't') {
+                moves.add(new int[] {newR, newC});
+            }
+        }
+        return moves;
+}
+
 }
