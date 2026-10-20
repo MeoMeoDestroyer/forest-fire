@@ -45,4 +45,17 @@ public class FireTest {
         assertEquals(0, moves.get(0)[0]);
         assertEquals(1, moves.get(0)[1]);
     }
+
+    // test for timeToBurn
+    @Test
+    public void straightLine() {
+        char[][] forest = { {'t','t','t','t','t'} };
+        assertEquals(4, Fire.timeToBurn(forest, 0, 0));
+    }
+
+    @Test
+    public void startInMiddle() {
+        char[][] forest = { {'t','t','t','t','t'} };
+        assertEquals(2, Fire.timeToBurn(forest, 0, 2));
+    }
 }
