@@ -83,4 +83,13 @@ public class FireTest {
         char[][] forest = { {'t'} };
         assertEquals(0, Fire.timeToBurn(forest, 0, 0));
     }
+    @Test
+    public void noNeighbors() {
+        char[][] forest = {
+            {'t','.','t'},
+            {'.','t','.'},
+            {'t','.','t'}
+        };
+        assertEquals(0, Fire.timeToBurn(forest, 1, 1));
+    }
 }
