@@ -78,4 +78,9 @@ public class FireTest {
         };
         assertEquals(4, Fire.timeToBurn(forest, 0, 0));
     }
+    @Test
+    public void oneTree() {
+        char[][] forest = { {'t'} };
+        assertEquals(0, Fire.timeToBurn(forest, 0, 0));
+    }
 }
