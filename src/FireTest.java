@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class FireTest {
@@ -21,5 +23,26 @@ public class FireTest {
         assertEquals(expected, actual);
     }
 
-    // Add more tests!
+    @Test
+    public void nextMoves_allSides() {
+        char[][] forest = {
+            {'.','t','.'},
+            {'t','t','t'},
+            {'.','t','.'}
+        };
+        List<int[]> moves = Fire.nextMoves(forest, new int[] {1, 1});
+        assertEquals(4, moves.size());
+    }
+
+    @Test
+    public void nextMoves_corner() {
+        char[][] forest = {
+            {'t','t'},
+            {'.','.'}
+        };
+        List<int[]> moves = Fire.nextMoves(forest, new int[] {0, 0});
+        assertEquals(1, moves.size());
+        assertEquals(0, moves.get(0)[0]);
+        assertEquals(1, moves.get(0)[1]);
+    }
 }
